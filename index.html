@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glamour Studio – Beauty Parlour</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div id="preloader">
+    <div class="pre-inner">
+      <div class="petal-ring">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p>Glamour Studio</p>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header id="navbar">
+    <div class="nav-inner">
+      <div class="logo">
+        <i class="fa-solid fa-spa"></i>
+        <span>Glamour <em>Studio</em></span>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn-book">Book Now</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">✦ Premium Beauty Experience</span>
+      <h1>Where Beauty<br/><em>Meets</em> Artistry</h1>
+      <p>Transform yourself with our expert stylists. Bridal looks, party glam, skincare &amp; more — all under one roof.</p>
+      <div class="hero-btns">
+        <a href="#services" class="btn-primary">Explore Services</a>
+        <a href="#contact" class="btn-outline">Book Appointment</a>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-ring">
+        <span>10+ Years · Expert Team · 5★ Rated</span>
+      </div>
+    </div>
+    <div class="scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
+  </section>
+
+  <!-- ===== MARQUEE SERVICES CARDS ===== -->
+  <section id="marquee-section">
+    <div class="marquee-header">
+      <span class="section-tag">Our Specialities</span>
+      <h2>What We Offer</h2>
+    </div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track" id="marqueeTrack">
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=400&q=80" alt="Bridal Makeup"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-crown"></i>
+            <h3>Bridal Makeup</h3>
+            <p>Timeless looks for your most special day</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&q=80" alt="Party Makeup"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-star"></i>
+            <h3>Party Makeup</h3>
+            <p>Glam up for every celebration &amp; occasion</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&q=80" alt="Eye Brows"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-eye"></i>
+            <h3>Eye Brows</h3>
+            <p>Perfectly shaped brows for a bold look</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&q=80" alt="Hair Cutting"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-scissors"></i>
+            <h3>Hair Cutting</h3>
+            <p>Stylish cuts tailored to your personality</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=400&q=80" alt="Hair Treatment"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <h3>Hair Treatment</h3>
+            <p>Restore shine &amp; health to every strand</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80" alt="Manicure"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-hand-sparkles"></i>
+            <h3>Manicure</h3>
+            <p>Beautiful nails with premium care &amp; art</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=400&q=80" alt="Pedicure"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-shoe-prints"></i>
+            <h3>Pedicure</h3>
+            <p>Pamper your feet with luxurious treatments</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&q=80" alt="Mehndi Design"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-paintbrush"></i>
+            <h3>Mehndi Design</h3>
+            <p>Intricate &amp; traditional henna artistry</p>
+          </div>
+        </div>
+
+        <!-- Duplicate set for seamless loop -->
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=400&q=80" alt="Bridal Makeup"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-crown"></i>
+            <h3>Bridal Makeup</h3>
+            <p>Timeless looks for your most special day</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&q=80" alt="Party Makeup"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-star"></i>
+            <h3>Party Makeup</h3>
+            <p>Glam up for every celebration &amp; occasion</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&q=80" alt="Eye Brows"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-eye"></i>
+            <h3>Eye Brows</h3>
+            <p>Perfectly shaped brows for a bold look</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&q=80" alt="Hair Cutting"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-scissors"></i>
+            <h3>Hair Cutting</h3>
+            <p>Stylish cuts tailored to your personality</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=400&q=80" alt="Hair Treatment"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <h3>Hair Treatment</h3>
+            <p>Restore shine &amp; health to every strand</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80" alt="Manicure"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-hand-sparkles"></i>
+            <h3>Manicure</h3>
+            <p>Beautiful nails with premium care &amp; art</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=400&q=80" alt="Pedicure"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-shoe-prints"></i>
+            <h3>Pedicure</h3>
+            <p>Pamper your feet with luxurious treatments</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-img">
+            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&q=80" alt="Mehndi Design"/>
+          </div>
+          <div class="m-card-body">
+            <i class="fa-solid fa-paintbrush"></i>
+            <h3>Mehndi Design</h3>
+            <p>Intricate &amp; traditional henna artistry</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES DETAIL ===== -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Premium Services</span>
+        <h2>Crafted with <em>Care</em></h2>
+        <p>Every service designed to make you feel confident and beautiful</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="srv-card" data-aos="fade-up">
+          <div class="srv-img">
+            <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=600&q=80" alt="Bridal Makeup"/>
+            <div class="srv-badge">Most Popular</div>
+          </div>
+          <div class="srv-info">
+            <i class="fa-solid fa-crown"></i>
+            <h3>Bridal Makeup</h3>
+            <p>From traditional to contemporary, our bridal artists craft the perfect look for your wedding day with long-lasting premium products.</p>
+            <span class="price">Starting ₹2,500</span>
+          </div>
+        </div>
+
+        <div class="srv-card" data-aos="fade-up" data-delay="100">
+          <div class="srv-img">
+            <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80" alt="Party Makeup"/>
+          </div>
+          <div class="srv-info">
+            <i class="fa-solid fa-star"></i>
+            <h3>Party Makeup</h3>
+            <p>Glam looks for every party, reception, or event. Bold eyes, flawless skin — show up and shine.</p>
+            <span class="price">Starting ₹800</span>
+          </div>
+        </div>
+
+        <div class="srv-card" data-aos="fade-up" data-delay="200">
+          <div class="srv-img">
+            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="Eye Brows"/>
+          </div>
+          <div class="srv-info">
+            <i class="fa-solid fa-eye"></i>
+            <h3>Eye Brow Shaping</h3>
+            <p>Expert threading and tinting to frame your face perfectly. Define your look with beautifully shaped arches.</p>
+            <span class="price">Starting ₹100</span>
+          </div>
+        </div>
+
+        <div class="srv-card" data-aos="fade-up">
+          <div class="srv-img">
+            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80" alt="Hair Cutting"/>
+          </div>
+          <div class="srv-info">
+            <i class="fa-solid fa-scissors"></i>
+            <h3>Hair Cutting</h3>
+            <p>Trendy cuts, layers, fringes, and bobs — our expert stylists give you the look you've always wanted.</p>
+            <span class="price">Starting ₹300</span>
+          </div>
+        </div>
+
+        <div class="srv-card" data-aos="fade-up" data-delay="100">
+          <div class="srv-img">
+            <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=600&q=80" alt="Hair Treatment"/>
+          </div>
+          <div class="srv-info">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <h3>Hair Treatment</h3>
+            <p>Keratin, smoothening, deep conditioning, and spa — restore life and luster to damaged hair.</p>
+            <span class="price">Starting ₹1,200</span>
+          </div>
+        </div>
+
+        <div class="srv-card" data-aos="fade-up" data-delay="200">
+          <div class="srv-img">
+            <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80" alt="Mehndi Design"/>
+          </div>
+          <div class="srv-info">
+            <i class="fa-solid fa-paintbrush"></i>
+            <h3>Mehndi Design</h3>
+            <p>Rajasthani, Arabic, and bridal mehndi art crafted by skilled henna artists for every occasion.</p>
+            <span class="price">Starting ₹300</span>
+          </div>
+        </div>
+
+        <div class="srv-card" data-aos="fade-up">
+          <div class="srv-img">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80" alt="Manicure"/>
+          </div>
+          <div class="srv-info">
+            <i class="fa-solid fa-hand-sparkles"></i>
+            <h3>Manicure</h3>
+            <p>Nail art, gel polish, French tips — treat your hands to a relaxing and beautifying session.</p>
+            <span class="price">Starting ₹350</span>
+          </div>
+        </div>
+
+        <div class="srv-card" data-aos="fade-up" data-delay="100">
+          <div class="srv-img">
+            <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&q=80" alt="Pedicure"/>
+          </div>
+          <div class="srv-info">
+            <i class="fa-solid fa-shoe-prints"></i>
+            <h3>Pedicure</h3>
+            <p>Foot spa, scrub, massage, and nail art — give your feet the love they deserve after a long day.</p>
+            <span class="price">Starting ₹450</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS STRIP ===== -->
+  <section id="stats">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-num" data-target="2500">0</span><span>+</span>
+        <p>Happy Clients</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="10">0</span><span>+</span>
+        <p>Years Experience</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="8">0</span>
+        <p>Services Offered</p>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="500">0</span><span>+</span>
+        <p>Bridal Makeovers</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="container about-flex">
+      <div class="about-img" data-aos="slide-right">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=700&q=80" alt="About Glamour Studio"/>
+        <div class="about-tag-box">
+          <i class="fa-solid fa-award"></i>
+          <p>Award Winning<br/>Beauty Studio</p>
+        </div>
+      </div>
+      <div class="about-text" data-aos="slide-left">
+        <span class="section-tag">About Us</span>
+        <h2>Your Beauty, <em>Our Passion</em></h2>
+        <p>Welcome to <strong>Glamour Studio</strong> — a premium beauty parlour dedicated to bringing out the best in every client. With over 10 years of expertise, our certified artists use only the finest products to ensure stunning, long-lasting results.</p>
+        <p>We believe every woman deserves to feel beautiful, confident, and radiant — whether it's your wedding day, a party, or just a self-care session.</p>
+        <ul class="about-list">
+          <li><i class="fa-solid fa-check-circle"></i> Certified & Experienced Stylists</li>
+          <li><i class="fa-solid fa-check-circle"></i> Premium International Products</li>
+          <li><i class="fa-solid fa-check-circle"></i> Hygienic & Comfortable Environment</li>
+          <li><i class="fa-solid fa-check-circle"></i> Affordable Packages for All</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Client Love</span>
+        <h2>What They <em>Say</em></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"My bridal makeup was absolutely stunning! I cried happy tears when I saw myself. Best decision ever!"</p>
+          <div class="testi-author">
+            <div class="author-avatar">P</div>
+            <div>
+              <strong>Priya Sharma</strong>
+              <span>Bride, Jaipur</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card featured">
+          <div class="stars">★★★★★</div>
+          <p>"The mehndi design was exactly what I wanted — so detailed and beautiful. Everyone kept asking who did it!"</p>
+          <div class="testi-author">
+            <div class="author-avatar">S</div>
+            <div>
+              <strong>Sunita Meena</strong>
+              <span>Regular Client</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Hair treatment here is amazing. My dry hair became so silky and shiny after just one session. Highly recommend!"</p>
+          <div class="testi-author">
+            <div class="author-avatar">R</div>
+            <div>
+              <strong>Rekha Gupta</strong>
+              <span>Hair Treatment Client</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="container contact-flex">
+      <div class="contact-info" data-aos="fade-right">
+        <span class="section-tag">Book Appointment</span>
+        <h2>Visit Our <em>Studio</em></h2>
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div><strong>Address</strong><p>123 Beauty Lane, Bansur, Rajasthan – 301402</p></div>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-phone"></i>
+          <div><strong>Phone</strong><p>+91 98765 43210</p></div>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-clock"></i>
+          <div><strong>Hours</strong><p>Mon–Sat: 9:00 AM – 8:00 PM<br/>Sunday: 10:00 AM – 6:00 PM</p></div>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="contact-form" data-aos="fade-left">
+        <form id="bookingForm">
+          <h3>Book Your Appointment</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Priya Sharma" required/>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+91 9876543210" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Select Service</label>
+            <select required>
+              <option value="">-- Choose a Service --</option>
+              <option>Bridal Makeup</option>
+              <option>Party Makeup</option>
+              <option>Eye Brow Shaping</option>
+              <option>Hair Cutting</option>
+              <option>Hair Treatment</option>
+              <option>Manicure</option>
+              <option>Pedicure</option>
+              <option>Mehndi Design</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Preferred Date</label>
+              <input type="date" required/>
+            </div>
+            <div class="form-group">
+              <label>Preferred Time</label>
+              <input type="time" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message (Optional)</label>
+            <textarea placeholder="Any special requirements..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-btn">
+            <i class="fa-solid fa-calendar-check"></i> Confirm Booking
+          </button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <i class="fa-solid fa-circle-check"></i>
+          <h3>Booking Confirmed!</h3>
+          <p>Thank you! We'll call you to confirm your appointment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <i class="fa-solid fa-spa"></i>
+        <span>Glamour <em>Studio</em></span>
+        <p>Making every woman feel like a queen — one glam session at a time.</p>
+      </div>
+      <div class="footer-links">
+        <strong>Quick Links</strong>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-links">
+        <strong>Services</strong>
+        <a href="#">Bridal Makeup</a>
+        <a href="#">Hair Treatment</a>
+        <a href="#">Mehndi Design</a>
+        <a href="#">Manicure & Pedicure</a>
+      </div>
+      <div class="footer-links">
+        <strong>Connect</strong>
+        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+        <a href="#"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Glamour Studio. All rights reserved. | Designed with ♥ for Bansur</p>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button id="scrollTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>

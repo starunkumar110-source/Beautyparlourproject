@@ -1,0 +1,882 @@
+/* ===== CSS VARIABLES ===== */
+:root {
+  --rose: #C9567E;
+  --rose-dark: #9E3A5E;
+  --rose-light: #F2D0DE;
+  /* ब्राइडल मैरिज फील के लिए गोल्ड को थोड़ा और रॉयल और चमकदार (Rich Gold) किया गया है */
+  --gold: #D4AF37; 
+  --gold-light: #F9F1DC;
+  --cream: #FDF8F3;
+  --dark: #1C1018;
+  --mid: #5A3A4A;
+  --text: #3D2535;
+  --text-light: #7A5A6A;
+  --white: #FFFFFF;
+  --shadow: 0 8px 40px rgba(201,86,126,0.13);
+  --shadow-lg: 0 20px 60px rgba(201,86,126,0.18);
+  --radius: 18px;
+  --radius-sm: 10px;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+img, video { display: block; width: 100%; height: 100%; object-fit: cover; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===== PRELOADER ===== */
+#preloader {
+  position: fixed; inset: 0;
+  background: var(--dark);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#preloader.hidden { opacity: 0; visibility: hidden; }
+.pre-inner { text-align: center; }
+.pre-inner p {
+  color: var(--rose-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  margin-top: 20px;
+  animation: fadeInUp 1s ease forwards;
+}
+.petal-ring {
+  width: 70px; height: 70px;
+  position: relative;
+  margin: 0 auto;
+  animation: spin 2s linear infinite;
+}
+.petal-ring span {
+  position: absolute;
+  width: 12px; height: 12px;
+  background: var(--rose);
+  border-radius: 50% 50% 0 50%;
+  transform-origin: 35px 35px;
+}
+.petal-ring span:nth-child(1) { transform: rotate(0deg) translate(25px); }
+.petal-ring span:nth-child(2) { transform: rotate(60deg) translate(25px); background: var(--gold); }
+.petal-ring span:nth-child(3) { transform: rotate(120deg) translate(25px); }
+.petal-ring span:nth-child(4) { transform: rotate(180deg) translate(25px); background: var(--gold); }
+.petal-ring span:nth-child(5) { transform: rotate(240deg) translate(25px); }
+.petal-ring span:nth-child(6) { transform: rotate(300deg) translate(25px); background: var(--gold); }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== NAVBAR ===== */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 18px 0;
+  transition: var(--transition);
+}
+#navbar.scrolled {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(201,86,126,0.12);
+  padding: 12px 0;
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  transition: var(--transition);
+}
+#navbar.scrolled .logo { color: var(--dark); }
+.logo i { color: var(--rose); font-size: 1.6rem; }
+.logo em { color: var(--gold); font-style: italic; } /* Changed to Gold for better pop */
+.nav-links {
+  display: flex; align-items: center; gap: 30px;
+}
+.nav-links a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.03em;
+  transition: var(--transition);
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--rose);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+.nav-links a:hover::after { width: 100%; }
+#navbar.scrolled .nav-links a { color: var(--text); }
+.btn-book {
+  background: var(--rose) !important;
+  color: var(--white) !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.btn-book:hover {
+  background: var(--rose-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(201,86,126,0.35);
+}
+.btn-book::after { display: none !important; }
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 5px;
+}
+.hamburger span {
+  display: block; width: 26px; height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+#navbar.scrolled .hamburger span { background: var(--dark); }
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+  color: var(--white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  border: none; cursor: pointer;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(201,86,126,0.4);
+}
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent;
+  color: var(--white);
+  padding: 13px 30px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 2px solid var(--gold); /* Gold border looks gorgeous against dark background */
+  transition: var(--transition);
+}
+.btn-outline:hover {
+  background: var(--gold);
+  color: var(--dark);
+}
+.full-btn { width: 100%; justify-content: center; font-size: 1rem; padding: 16px; }
+
+/* ===== SECTION HELPERS ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section-tag {
+  display: inline-block;
+  background: var(--rose-light);
+  color: var(--rose-dark);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.section-header h2 em { color: var(--rose); font-style: italic; }
+.section-header p { color: var(--text-light); max-width: 500px; margin: 0 auto; }
+
+/* ===== HERO SECTION WITH VIDEO BACKGROUND ===== */
+#hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex; align-items: center;
+  background: var(--dark); /* Fallback backgound */
+  overflow: hidden;
+}
+/* अगर आप HTML में <video> टैग जोड़ेंगे तो यह उसे पूरे बैकग्राउंड पर परफेक्टली सेट कर देगा */
+.hero-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-bg-overlay {
+  position: absolute; inset: 0;
+  /* रिच सिनेमाई ब्राइडल लुक के लिए ओवरले को डीप वाइन और ब्लैक शेड दिया गया है */
+  background: linear-gradient(135deg, rgba(28,16,24,0.88) 0%, rgba(90,58,74,0.65) 50%, rgba(28,16,24,0.85) 100%);
+  z-index: 1;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 140px 24px 80px;
+  max-width: 750px;
+  margin-left: max(24px, calc((100vw - 1200px) / 2));
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(212,175,55,0.2);
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+  animation: fadeInDown 0.8s ease forwards;
+}
+.hero-content h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6.5vw, 5.2rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.9s 0.2s ease both;
+}
+.hero-content h1 em { color: var(--gold); font-style: italic; }
+.hero-content p {
+  color: rgba(255,255,255,0.85);
+  font-size: 1.15rem;
+  max-width: 520px;
+  margin-bottom: 36px;
+  animation: fadeInUp 0.9s 0.35s ease both;
+}
+.hero-btns {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  animation: fadeInUp 0.9s 0.5s ease both;
+}
+.hero-badge {
+  position: absolute;
+  right: 8%;
+  bottom: 15%;
+  z-index: 2;
+  animation: float 4s ease-in-out infinite;
+}
+.badge-ring {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  border: 2px dashed var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(28,16,24,0.7);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  padding: 16px;
+}
+.badge-ring span {
+  font-size: 0.75rem;
+  color: var(--gold-light);
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  font-weight: 500;
+}
+.scroll-hint {
+  position: absolute; bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 1.4rem;
+  animation: bounce 2s infinite;
+  z-index: 2;
+}
+
+/* ===== MARQUEE (चलने वाले कार्ड्स) ===== */
+#marquee-section {
+  padding: 80px 0;
+  background: var(--white);
+  overflow: hidden;
+}
+.marquee-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 24px;
+}
+.marquee-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--dark);
+}
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+.marquee-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+  padding: 10px 12px 20px;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+.m-card {
+  width: 250px;
+  flex-shrink: 0;
+  background: var(--cream);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(201,86,126,0.1);
+}
+.m-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--rose-light);
+}
+.m-card-img {
+  height: 190px;
+  overflow: hidden;
+}
+.m-card-img img {
+  transition: transform 0.6s ease;
+}
+.m-card:hover .m-card-img img { transform: scale(1.1); }
+.m-card-body {
+  padding: 20px;
+  text-align: center;
+}
+.m-card-body i {
+  font-size: 1.4rem;
+  color: var(--rose);
+  margin-bottom: 8px;
+  display: block;
+}
+.m-card-body h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+.m-card-body p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== SERVICES GRID WITH PREMIUM BRIDAL STYLING ===== */
+#services {
+  padding: 100px 0;
+  background: var(--cream);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 30px;
+}
+.srv-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  opacity: 1; /* For smoother default state if AOS is slow */
+  border: 1px solid transparent;
+}
+.srv-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold); /* मैरिज वर्क हाइलाइट करने के लिए गोल्ड बॉर्डर */
+}
+.srv-img {
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+.srv-img img { transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.srv-card:hover .srv-img img { transform: scale(1.1); }
+
+/* ब्राइडल स्पेशल टैग */
+.srv-badge {
+  position: absolute; top: 14px; left: 14px;
+  background: linear-gradient(135deg, var(--rose-dark), var(--rose));
+  color: var(--white);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 12px rgba(158,58,94,0.3);
+}
+.srv-info {
+  padding: 24px;
+}
+.srv-info i {
+  font-size: 1.4rem;
+  color: var(--gold); /* Icons shifted to gold for luxury royal parlour theme */
+  margin-bottom: 12px;
+  display: block;
+}
+.srv-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.srv-info p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.price {
+  display: inline-block;
+  background: var(--gold-light);
+  color: #8A6D25;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ===== BRIDAL STATS STRIP ===== */
+#stats {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--mid) 100%);
+  padding: 70px 24px;
+  position: relative;
+}
+/* बैकग्राउंड को टेक्सचर देने के लिए एक हल्का चमकता हुआ इफ़ेक्ट */
+#stats::before {
+  content: ''; position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80') center/cover;
+  opacity: 0.04; mix-blend-mode: overlay;
+}
+.stats-inner {
+  position: relative; z-index: 1;
+  max-width: 1100px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+.stat-item { padding: 10px; }
+.stat-item .stat-num {
+  display: inline;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-item span:not(.stat-num) {
+  font-size: 2rem;
+  color: var(--gold-light);
+  font-weight: 300;
+}
+.stat-item p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+/* ===== ABOUT (शादी और दुल्हन स्पेशल टेक्स्ट फोकस) ===== */
+#about {
+  padding: 100px 0;
+  background: var(--white);
+}
+.about-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+.about-img {
+  position: relative;
+  border-radius: var(--radius);
+  height: 540px;
+  transition: var(--transition);
+}
+.about-img img {
+  border-radius: var(--radius);
+  height: 100%;
+  box-shadow: var(--shadow-lg);
+}
+.about-tag-box {
+  position: absolute;
+  bottom: -20px; right: -20px;
+  background: var(--dark);
+  border: 1px solid var(--gold);
+  color: var(--white);
+  padding: 22px 26px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: var(--shadow-lg);
+}
+.about-tag-box i { font-size: 2rem; color: var(--gold); }
+.about-tag-box p { font-size: 0.9rem; font-weight: 600; line-height: 1.4; }
+.about-tag-box span { color: var(--gold-light); font-size: 0.75rem; display: block; font-weight: 400; margin-top: 2px;}
+
+.about-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+.about-text h2 em { color: var(--rose); font-style: italic; }
+.about-text p { color: var(--text-light); margin-bottom: 18px; line-height: 1.8; font-size: 1rem; }
+.about-text strong { color: var(--rose-dark); font-weight: 600; }
+.about-list { margin: 24px 0 34px; display: flex; flex-direction: column; gap: 14px; }
+.about-list li {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.95rem; font-weight: 500; color: var(--text);
+}
+.about-list li i { color: var(--rose); font-size: 1.1rem; }
+
+/* ===== TESTIMONIALS ===== */
+#testimonials {
+  padding: 100px 0;
+  background: var(--cream);
+}
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 30px;
+}
+.testi-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 36px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+.testi-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--rose-light);
+}
+.testi-card.featured {
+  background: linear-gradient(135deg, var(--dark), var(--mid));
+  color: var(--white);
+  border: 1px solid var(--gold);
+  transform: translateY(-12px);
+}
+.stars {
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.featured .stars { color: var(--gold); }
+.testi-card p {
+  font-style: italic;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+.featured p { color: rgba(255,255,255,0.85); }
+.testi-author {
+  display: flex; align-items: center; gap: 14px;
+}
+.author-avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--rose-light);
+  color: var(--rose-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.1rem;
+}
+.featured .author-avatar {
+  background: rgba(212,175,55,0.2);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+}
+.testi-author strong { display: block; font-size: 0.9rem; color: var(--dark); }
+.featured .testi-author strong { color: var(--white); }
+.testi-author span { font-size: 0.78rem; color: var(--text-light); }
+.featured .testi-author span { color: rgba(255,255,255,0.65); }
+
+/* ===== CONTACT & BOOKING FORM ===== */
+#contact {
+  padding: 100px 0;
+  background: var(--white);
+}
+.contact-flex {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 60px;
+  align-items: start;
+}
+.contact-info h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+.contact-info h2 em { color: var(--rose); font-style: italic; }
+.info-item {
+  display: flex; gap: 18px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+}
+.info-item i {
+  color: var(--rose);
+  width: 42px; height: 42px;
+  background: var(--rose-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.05rem;
+}
+.info-item strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+.info-item p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
+.social-links {
+  display: flex; gap: 14px; margin-top: 35px;
+}
+.social-links a {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1px solid var(--rose-light);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--rose);
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+.social-links a:hover {
+  background: var(--rose);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(201,86,126,0.3);
+}
+
+/* PREMIUM BOOKING FORM STYLING */
+.contact-form {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 40px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(201,86,126,0.1);
+}
+.contact-form h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  color: var(--dark);
+  margin-bottom: 26px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--mid);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid rgba(201,86,126,0.2);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.92rem;
+  transition: var(--transition);
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--rose);
+  box-shadow: 0 0 0 4px rgba(201,86,126,0.1);
+}
+.form-group textarea { height: 110px; resize: vertical; }
+
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 50px 20px;
+}
+.form-success.show { display: block; animation: fadeInUp 0.5s ease forwards; }
+.form-success i {
+  font-size: 3.5rem;
+  color: var(--rose);
+  margin-bottom: 16px;
+}
+.form-success h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+.form-success p { color: var(--text-light); }
+
+/* ===== FOOTER ===== */
+#footer {
+  background: var(--dark);
+  padding-top: 80px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+.footer-brand .logo {
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  max-width: 280px;
+  margin-top: 12px;
+}
+.footer-links strong {
+  display: block;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.footer-links a {
+  display: block;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  transition: var(--transition);
+}
+.footer-links a:hover { color: var(--rose-light); transform: translateX(5px); }
+.footer-links a i { margin-right: 8px; color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 24px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-bottom p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+
+/* ===== SCROLL TO TOP ===== */
+#scrollTop {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--rose);
+  color: var(--white);
+  border: none; cursor: pointer;
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 20px rgba(201,86,126,0.4);
+  opacity: 0; visibility: hidden;
+  transform: translateY(20px);
+  transition: var(--transition);
+  z-index: 999;
+}
+#scrollTop.show {
+  opacity: 1; visibility: visible;
+  transform: translateY(0);
+}
+#scrollTop:hover { background: var(--rose-dark); transform: translateY(-3px); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .about-flex { grid-template-columns: 1fr; gap: 50px; }
+  .about-img { height: 420px; }
+  .contact-flex { grid-template-columns: 1fr; gap: 40px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0; right: -100%;
+    height: 100vh; width: 75%;
+    max-width: 320px;
+    background: var(--white);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    box-shadow: -10px 0 40px rgba(0,0,0,0.15);
+    transition: right 0.4s ease;
+    z-index: 999;
+  }
+  .nav-links.open { right: 0; }
+  .nav-links a { color: var(--dark) !important; font-size: 1.1rem; }
+  .hamburger { display: flex; z-index: 1000; }
+  .hero-content { margin-left: 24px; padding-top: 120px; }
+  .hero-badge { display: none; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .testi-card.featured { transform: none; }
+  .about-tag-box { right: 0; bottom: -16px; }
+}
+@media (max-width: 480px) {
+  .hero-btns { flex-direction: column; }
+  .btn-primary, .btn-outline { text-align: center; justify-content: center; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .contact-form { padding: 30px 20px; }
+}
